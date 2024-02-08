@@ -26,17 +26,13 @@
 - Superuser rights (configured sudo or root access).
 - Make sure your system is up-to-date! Outdated Docker binaries, for example, can cause trouble.
 
-For stable branch use `--branch=v23.11`
 
 ```bash
 apt-get -y install git
-git clone --depth=1 --branch=main https://github.com/armbian/build
+git clone --depth=1 --branch= Riscv-V2 https://github.com/ksbjr/build.git
 cd build
 ./compile.sh
 ```
-
-<a href="#how-to-build-an-image-or-a-kernel"><img src=".github/README.gif" alt="Armbian logo" width="100%"></a>
-
 - Interactive graphical interface.
 - Prepares the workspace by installing the necessary dependencies and sources.
 - It guides the entire process and creates a kernel package or a ready-to-use SD card image.
