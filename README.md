@@ -45,16 +45,18 @@ Show work-in-progress areas in interactive mode:
 ./compile.sh EXPERT="yes"
 ```
 
-Build minimal CLI Armbian Jammy for Bananapi M5 with LTS kernel:
+Build minimal CLI Armbian Sid for StarFive Visionfive2 with mainline kernel kernel:
 
 ```bash
 ./compile.sh \
-BOARD=bananapim5 \
-BRANCH=current \
-RELEASE=jammy \
-BUILD_MINIMAL=yes \
+BOARD=starfive-visionfive2 \
+BRANCH=mainline \
+RELEASE=sid \
+BUILD_MINIMAL=no \
 BUILD_DESKTOP=no \
-KERNEL_CONFIGURE=no
+KERNEL_CONFIGURE=no \
+SHOW_LOG=yes \
+SHOW_DEBUG=yes
 ```
 
 Build with GitHub actions: ([advanced version](https://github.com/armbian/os/blob/main/.github/workflows/complete-artifact-one-by-one.yml))
