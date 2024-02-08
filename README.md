@@ -135,8 +135,6 @@ Function | Armbian | Yocto | Buildroot |
 ├── config                               Packages repository configurations
 │   ├── targets.conf                     Board build target configuration
 │   ├── boards                           Board configurations
-│   ├── bootenv                          Initial boot loaders environments per family
-│   ├── bootscripts                      Initial Boot loaders scripts per family
 │   ├── cli                              CLI packages configurations per distribution
 │   ├── desktop                          Desktop packages configurations per distribution
 │   ├── distributions                    Distributions settings
@@ -172,13 +170,9 @@ Function | Armbian | Yocto | Buildroot |
 │   ├── bsp                              Scripts and configs overlay for rootfs
 │   └── extras-buildpkgs                 Optional compilation and packaging engine
 ├── patch                                Collection of patches
-│   ├── atf                              ARM trusted firmware
 │   ├── kernel                           Linux kernel patches
 |   |   └── family-branch                Per kernel family and branch
-│   ├── misc                             Linux kernel packaging patches
-│   └── u-boot                           Universal boot loader patches
-|       ├── u-boot-board                 For specific board
-|       └── u-boot-family                For entire kernel family
+│   └── misc                             Linux kernel packaging patches
 ├── tools                                Tools for dealing with kernel patches and configs
 └── userpatches                          User: configuration patching area
     ├── lib.config                       User: framework common config/override file
