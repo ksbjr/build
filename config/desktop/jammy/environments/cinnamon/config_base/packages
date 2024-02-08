@@ -33,7 +33,6 @@ fonts-ubuntu
 fonts-ubuntu-console
 foomatic-db-compressed-ppds
 gdebi
-ghostscript-x
 gir1.2-cinnamondesktop-3.0
 gir1.2-cmenu-3.0
 gir1.2-cvc-1.0
@@ -50,14 +49,9 @@ gtk2-engines-murrine
 gtk2-engines-pixbuf
 gvfs-backends
 hplip
-indicator-printers
 inxi
 inputattach
 keyutils
-language-pack-gnome-de
-language-pack-gnome-en
-language-pack-gnome-ru
-language-pack-gnome-sl
 laptop-detect
 libatk-adaptor
 libcinnamon-desktop4
@@ -94,9 +88,9 @@ pasystray
 pavucontrol
 pavumeter
 policykit-1
-policykit-desktop-privileges
 printer-driver-all
 profile-sync-daemon
+pulseaudio
 pulseaudio-module-bluetooth
 redshift
 slick-greeter
@@ -107,8 +101,6 @@ synaptic
 system-config-printer
 system-config-printer-common
 terminator
-update-manager
-update-manager-core
 viewnior
 x11-apps
 x11-utils

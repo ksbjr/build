@@ -1,0 +1,5 @@
+WebBrowser=firefox
+MailReader=evolution
+TerminalEmulator=debian-x-terminal-emulator
+MailReaderDismissed=true
+

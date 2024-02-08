@@ -1,0 +1,11 @@
+# RISC-V MilkV Duo 64m
+BOARD_NAME="MilkV Duo"
+BOARDFAMILY=""
+BOARD_MAINTAINER=""
+KERNEL_TARGET=""
+BOOT_FDT_FILE="sophgo/cv1800b-milkv-duo.dtb"
+SRC_EXTLINUX=""
+SRC_CMDLINE="console=ttyS0,115200 rootwait rw earlycon clk_ignore_unused loglevel=7 eth=\$ethaddr tsched=0 rootrwoptions=rw,noatime rootrwreset=yes"
+#BOOTCONFIG=""
+#BOOTFS_TYPE=""
+#BOOTSIZE=""

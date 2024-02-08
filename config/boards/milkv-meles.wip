@@ -1,0 +1,11 @@
+# RISC-V MilkV Meles
+BOARD_NAME="MilkV Meles"
+BOARDFAMILY="thead"
+BOARD_MAINTAINER=""
+KERNEL_TARGET="legacy,current,edge"
+BOOT_FDT_FILE="thead/th1520-milkv-meles"
+SRC_EXTLINUX="yes"
+SRC_CMDLINE="console=ttyS0,115200 rootwait rw earlycon clk_ignore_unused loglevel=7 eth=\$ethaddr tsched=0 rootrwoptions=rw,noatime rootrwreset=yes"
+#BOOTCONFIG=""
+#BOOTFS_TYPE=""
+#BOOTSIZE=""
