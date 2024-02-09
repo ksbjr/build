@@ -38,6 +38,9 @@ libproc-processtable-perl
 libssl-dev
 libwrap0-dev
 mc
+network-manager-openconnect
+network-manager-pptp
+network-manager-ssh
 network-manager-openvpn
 nfs-common
 ntfs-3g
