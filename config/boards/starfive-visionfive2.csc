@@ -2,7 +2,7 @@
 BOARD_NAME="VisionFive2"
 BOARDFAMILY="starfive2"
 BOARD_MAINTAINER=""
-KERNEL_TARGET="current, edge, mainline"
+KERNEL_TARGET="current, dev, edge, mainline"
 BOOT_FDT_FILE="starfive/jh7110-visionfive-v2.dtb"
 SRC_EXTLINUX="yes"
 SRC_CMDLINE="console=ttyS0,115200n8 console=tty0 earlycon=sbi rootflags=data=writeback stmmaceth=chain_mode:1 rw"
