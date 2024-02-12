@@ -53,7 +53,7 @@ function do_main_configuration() {
 	[[ -z $VENDORBUGS ]] && VENDORBUGS="https://armbian.atlassian.net/"
 	[[ -z $VENDORDOCS ]] && VENDORDOCS="https://docs.armbian.com/"
 	[[ -z $VENDORLOGO ]] && VENDORLOGO="armbian-logo"
-	[[ -z $ROOTPWD ]] && ROOTPWD="1234"                                       # Must be changed @first login
+	[[ -z $ROOTPWD ]] && ROOTPWD="RiscV"                                       # Must be changed @first login
 	[[ -z $MAINTAINER ]] && MAINTAINER="John Doe"                             # deb signature
 	[[ -z $MAINTAINERMAIL ]] && MAINTAINERMAIL="john.doe@somewhere.on.planet" # deb signature
 	DEST_LANG="${DEST_LANG:-"en_US.UTF-8"}"                                   # en_US.UTF-8 is default locale for target
@@ -311,24 +311,14 @@ function do_extra_configuration() {
 
 	DEBIAN_MIRROR='deb.debian.org/debian'
 	DEBIAN_SECURTY='security.debian.org/'
-	[[ "${ARCH}" == "amd64" ]] &&
-		UBUNTU_MIRROR='archive.ubuntu.com/ubuntu/' ||
-		UBUNTU_MIRROR='ports.ubuntu.com/'
-
 	if [[ $DOWNLOAD_MIRROR == "china" ]]; then
 		DEBIAN_MIRROR='mirrors.tuna.tsinghua.edu.cn/debian'
 		DEBIAN_SECURTY='mirrors.tuna.tsinghua.edu.cn/debian-security'
-		[[ "${ARCH}" == "amd64" ]] &&
-			UBUNTU_MIRROR='mirrors.tuna.tsinghua.edu.cn/ubuntu/' ||
-			UBUNTU_MIRROR='mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/'
 	fi
 
 	if [[ $DOWNLOAD_MIRROR == "bfsu" ]]; then
 		DEBIAN_MIRROR='mirrors.bfsu.edu.cn/debian'
 		DEBIAN_SECURTY='mirrors.bfsu.edu.cn/debian-security'
-		[[ "${ARCH}" == "amd64" ]] &&
-			UBUNTU_MIRROR='mirrors.bfsu.edu.cn/ubuntu/' ||
-			UBUNTU_MIRROR='mirrors.bfsu.edu.cn/ubuntu-ports/'
 	fi
 
 	# Control aria2c's usage of ipv6.
