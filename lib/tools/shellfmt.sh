@@ -31,6 +31,7 @@ esac
 case "$MACHINE" in
 	*aarch64*) SHELLFMT_ARCH="arm64" ;;
 	*x86_64*) SHELLFMT_ARCH="amd64" ;;
+	*risv*) SHELLFMT_ARCH="riscv64" ;;
 	*)
 		echo "unknown arch: $MACHINE"
 		exit 2
