@@ -301,7 +301,7 @@ function do_extra_configuration() {
 	[[ -z $BOOTPATCHDIR ]] && BOOTPATCHDIR="u-boot-$LINUXFAMILY" # @TODO move to hook
 	[[ -z $ATFPATCHDIR ]] && ATFPATCHDIR="atf-$LINUXFAMILY"
 
-	if [[ "$RELEASE" =~ ^(focal|jammy|kinetic|lunar|mantic|noble)$ ]]; then
+	if [[ "$RELEASE" =~ ^(jammy)$ ]]; then
 		DISTRIBUTION="Ubuntu"
 		DEBOOTSTRAP_SOURCE="gutsy"
 	else
@@ -329,20 +329,6 @@ function do_extra_configuration() {
 		[[ "${ARCH}" == "amd64" ]] &&
 			UBUNTU_MIRROR='mirrors.bfsu.edu.cn/ubuntu/' ||
 			UBUNTU_MIRROR='mirrors.bfsu.edu.cn/ubuntu-ports/'
-	fi
-
-	if [[ "${ARCH}" == "amd64" ]]; then
-		UBUNTU_MIRROR='archive.ubuntu.com/ubuntu' # ports are only for non-amd64, of course.
-		if [[ -n ${CUSTOM_UBUNTU_MIRROR} ]]; then # ubuntu redirector doesn't work well on amd64
-			UBUNTU_MIRROR="${CUSTOM_UBUNTU_MIRROR}"
-		fi
-	fi
-
-	if [[ "${ARCH}" != "i386" && "${ARCH}" != "amd64" ]]; then # ports are not present on all mirrors
-		if [[ -n ${CUSTOM_UBUNTU_MIRROR_PORTS} ]]; then
-			display_alert "Using custom ports/${ARCH} mirror" "${CUSTOM_UBUNTU_MIRROR_PORTS}" "info"
-			UBUNTU_MIRROR="${CUSTOM_UBUNTU_MIRROR_PORTS}"
-		fi
 	fi
 
 	# Control aria2c's usage of ipv6.
