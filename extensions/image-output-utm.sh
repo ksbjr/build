@@ -46,15 +46,9 @@ function post_build_image__920_create_utm_plist() {
 
 	local UTM_ARCH UTM_CPU UTM_TARGET
 	case "${ARCH}" in
-		amd64)
-			display_alert "Creating UTM 3.x config.plist file" "${EXTENSION} - amd64" "info"
-			UTM_ARCH="x86_64"
-			UTM_CPU="host"
-			UTM_TARGET="q35"
-			;;
-		arm64)
-			display_alert "Creating UTM 3.x config.plist file" "${EXTENSION} - arm64" "info"
-			UTM_ARCH="aarch64"
+		riscv64)
+			display_alert "Creating UTM 3.x config.plist file" "${EXTENSION} - riscv6464" "info"
+			UTM_ARCH="riscv"
 			UTM_CPU="default"
 			UTM_TARGET="virt"
 			;;
