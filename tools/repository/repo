@@ -62,7 +62,7 @@ IFS=', ' read -r -a DISTROS <<< "$5"
 local errors=0
 # publish all, update selected
 local distributions=($(grep -rw config/distributions/*/support -ve 'eos' | cut -d"/" -f3))
-#local distributions=("jessy" "xenial" "stretch" "bionic" "focal" "hirsute" "impish" "jammy" "lunar" "kinetic" "buster" "bullseye" "bookworm" "sid")
+#local distributions=("jammy" "sid")
 for release in "${distributions[@]}"; do
 	local forceoverwrite=""
 
@@ -274,7 +274,7 @@ esac
 input="output/debs-beta"
 output="output/repository"
 command="show"
-releases="jammy,lunar,buster,bullseye,bookworm,sid"
+releases="jammy,sid"
 
 help()
 {
