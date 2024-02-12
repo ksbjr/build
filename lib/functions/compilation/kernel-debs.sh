@@ -373,8 +373,6 @@ function kernel_package_callback_linux_headers() {
 	# those can be source files or object (binary/compiled) stuff
 	# how to get SRCARCH? only from the makefile itself. ARCH=amd64 then SRCARCH=x86. How to we know? @TODO
 	local SRC_ARCH="${ARCH}"
-	[[ "${SRC_ARCH}" == "amd64" ]] && SRC_ARCH="x86"
-	[[ "${SRC_ARCH}" == "armhf" ]] && SRC_ARCH="arm"
 	[[ "${SRC_ARCH}" == "riscv64" ]] && SRC_ARCH="riscv"
 	# @TODO: added KERNEL_SRC_ARCH to each arch'es .config file; let's make sure they're sane. Just use KERNEL_SRC_ARCH after confirmed.
 	# Lets check and warn if it isn't. If warns don't popup over time we remove and just use ARCHITECTURE later.
@@ -420,15 +418,15 @@ function kernel_package_callback_linux_headers() {
 	# Small detour: in v6.3-rc1, in commit https://github.com/torvalds/linux/commit/799fb82aa132fa3a3886b7872997a5a84e820062,
 	#               the tools/vm dir was renamed to tools/mm. Unfortunately tools/Makefile still expects it to exist,
 	#               and "make clean" in the "/tools" dir fails. Drop in a fake Makefile there to work around this.
-	if [[ ! -f "${headers_target_dir}/tools/vm/Makefile" ]]; then
-		display_alert "Creating fake tools/vm/Makefile" "6.3+ hackfix" "debug"
-		run_host_command_logged mkdir -p "${headers_target_dir}/tools/vm"
-		echo -e "clean:\n\techo fake clean for tools/vm" > "${headers_target_dir}/tools/vm/Makefile"
-	fi
+	#if [[ ! -f "${headers_target_dir}/tools/vm/Makefile" ]]; then
+	#	display_alert "Creating fake tools/vm/Makefile" "6.3+ hackfix" "debug"
+	#	run_host_command_logged mkdir -p "${headers_target_dir}/tools/vm"
+	#	echo -e "clean:\n\techo fake clean for tools/vm" > "${headers_target_dir}/tools/vm/Makefile"
+	#fi
 
 	# Hack for 6.5-rc1: create include/linux dir so the 'clean' step below doesn't fail. I've reported upstream...
-	display_alert "Creating fake counter/include/linux" "6.5-rc1 hackfix" "debug"
-	run_host_command_logged mkdir -p "${headers_target_dir}/tools/counter/include/linux"
+	#display_alert "Creating fake counter/include/linux" "6.5-rc1 hackfix" "debug"
+	#run_host_command_logged mkdir -p "${headers_target_dir}/tools/counter/include/linux"
 
 	# Now, make the script dirs clean.
 	# This is run in our _target_ dir, NOT the source tree, so we're free to make clean as we wish without invalidating the next build's cache.
