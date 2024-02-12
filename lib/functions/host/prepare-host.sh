@@ -165,7 +165,7 @@ function prepare_host_noninteractive() {
 
 			declare host_arch
 			host_arch="$(arch)"
-			local -a wanted_arches=("arm" "aarch64" "x86_64" "riscv64")
+			local -a wanted_arches=("riscv64")
 			display_alert "Preparing binfmts for arch" "binfmts: host '${host_arch}', wanted arches '${wanted_arches[*]}'" "debug"
 			declare wanted_arch
 			for wanted_arch in "${wanted_arches[@]}"; do
@@ -308,25 +308,9 @@ function adaptative_prepare_host_dependencies() {
 	### ARCH
 	declare wanted_arch="${target_arch:-"all"}"
 
-	if [[ "${wanted_arch}" == "amd64" || "${wanted_arch}" == "all" ]]; then
-		host_dependencies+=("gcc-x86-64-linux-gnu") # from crossbuild-essential-amd64
-	fi
-
-	if [[ "${wanted_arch}" == "arm64" || "${wanted_arch}" == "all" ]]; then
-		host_dependencies+=("gcc-aarch64-linux-gnu") # from crossbuild-essential-arm64
-	fi
-
-	if [[ "${wanted_arch}" == "armhf" || "${wanted_arch}" == "all" ]]; then
-		host_dependencies+=("gcc-arm-linux-gnueabihf" "gcc-arm-linux-gnueabi") # from crossbuild-essential-armhf crossbuild-essential-armel
-	fi
-
 	if [[ "${wanted_arch}" == "riscv64" || "${wanted_arch}" == "all" ]]; then
 		host_dependencies+=("gcc-riscv64-linux-gnu") # crossbuild-essential-riscv64 is not even available "yet"
 		host_dependencies+=("debian-archive-keyring")
-	fi
-
-	if [[ "${wanted_arch}" != "amd64" ]]; then
-		host_dependencies+=(libc6-amd64-cross) # Support for running x86 binaries (under qemu on other arches)
 	fi
 
 	declare -g EXTRA_BUILD_DEPS=""
