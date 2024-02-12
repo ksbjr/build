@@ -56,7 +56,7 @@ for one_repo_target in repo_targets:
 	distro_dict["Label"] = f"Armbian label {one_repo_target}"
 	distro_dict["Codename"] = f"{one_repo_target}"
 	distro_dict["Suite"] = f"{one_repo_target}"
-	distro_dict["Architectures"] = "amd64 armhf arm64 riscv64"
+	distro_dict["Architectures"] = "riscv64"
 	distro_dict["Components"] = "main"
 	distro_dict["Description"] = f"Apt repository for Armbian"
 	if (gpg_keyid is not None) and (gpg_keyid != ""):
