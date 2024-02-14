@@ -19,9 +19,9 @@ function extension_prepare_config__prepare_grub-riscv64() {
 	declare -g EXTRA_BSP_NAME="${EXTRA_BSP_NAME}-grub"                               # Unique bsp name.
 	declare -g UEFI_GRUB_TARGET="riscv64-efi"                                        # Default for x86_64
 
-	if [[ "${DISTRIBUTION}" != "Ubuntu" && "${BUILDING_IMAGE}" == "yes" ]]; then
-		exit_with_error "${DISTRIBUTION} is not supported yet"
-	fi
+	#if [[ "${DISTRIBUTION}" != "Ubuntu" && "${BUILDING_IMAGE}" == "yes" ]]; then
+	#	exit_with_error "${DISTRIBUTION} is not supported yet"
+	#fi
 
 	add_packages_to_image efibootmgr efivar cloud-initramfs-growroot busybox os-prober "grub-efi-${ARCH}-bin" "grub-efi-${ARCH}"
 
