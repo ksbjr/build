@@ -30,6 +30,7 @@ linux-base
 lsof
 man-db
 mmc-utils
+Mad-utils
 ncurses-term
 nano
 netplan.io
