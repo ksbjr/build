@@ -1,7 +1,7 @@
 # RISC-V SiFive Unleashed
 BOARD_NAME="Unleashed"
 BOARDFAMILY="starfive"
-BOARD_MAINTAINER=""
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET="dev, edge, mailine"
 BOOT_FDT_FILE="sifive/hifive-unleashed-a00.dtb"
 SRC_EXTLINUX="yes"

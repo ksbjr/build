@@ -1,7 +1,7 @@
 # RISC-V Pine64 PineTabV
 BOARD_NAME="PineTabV"
 BOARDFAMILY="starfive2"
-BOARD_MAINTAINER=""
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET="current"
 BOOT_FDT_FILE="starfive/jh7110-star64-pinetabv.dtb"
 SRC_EXTLINUX="yes"

@@ -1,7 +1,7 @@
 # RISC-V BeagleV Ahead
 BOARD_NAME="BeagleV Ahead"
 BOARDFAMILY="thead"
-BOARD_MAINTAINER=""
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET="dev,edge"
 BOOT_FDT_FILE="thead/th1520-beaglev-ahead.dtb"
 SRC_EXTLINUX="yes"

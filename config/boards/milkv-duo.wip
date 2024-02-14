@@ -1,7 +1,7 @@
 # RISC-V MilkV Duo 64m
 BOARD_NAME="MilkV Duo"
 BOARDFAMILY=""
-BOARD_MAINTAINER=""
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET=""
 BOOT_FDT_FILE="sophgo/cv1800b-milkv-duo.dtb"
 SRC_EXTLINUX=""

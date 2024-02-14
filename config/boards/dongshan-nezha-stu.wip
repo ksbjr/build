@@ -1,6 +1,7 @@
 # RISC-V Dongshan Nezha Stu
 BOARD_NAME="Dongshan Nezha Stu"
 BOARDFAMILY="d1"
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET="current,edge"
 FULL_DESKTOP="yes"
 BOOT_LOGO="desktop"

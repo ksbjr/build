@@ -1,7 +1,7 @@
 # RISC-V MilkV Mars
 BOARD_NAME="MilkV Mars"
 BOARDFAMILY="starfive2"
-BOARD_MAINTAINER=""
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET="edge"
 BOOT_FDT_FILE="starfive/jh7110-milkv-mars.dtb"
 SRC_EXTLINUX="yes"

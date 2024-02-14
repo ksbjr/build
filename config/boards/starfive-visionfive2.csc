@@ -1,7 +1,7 @@
 # RISC-V StarFive Visionfive V2
 BOARD_NAME="VisionFive2"
 BOARDFAMILY="starfive2"
-BOARD_MAINTAINER=""
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET="current, dev, edge, mainline"
 BOOT_FDT_FILE="starfive/jh7110-visionfive-v2.dtb"
 SRC_EXTLINUX="yes"

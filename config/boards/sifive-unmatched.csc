@@ -1,7 +1,7 @@
 # RISC-V SiFive Unmatched
 BOARD_NAME="Unmatched"
 BOARDFAMILY="starfive"
-BOARD_MAINTAINER=""
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET="dev, edge, mainline"
 BOOT_FDT_FILE="sifive/hifive-unmatched-a00.dtb"
 SRC_EXTLINUX="yes"

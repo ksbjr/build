@@ -1,7 +1,7 @@
 # RISC-V MilkV Pioneer
 BOARD_NAME="MilkV Pioneer"
 BOARDFAMILY=""
-BOARD_MAINTAINER=""
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET=""
 BOOT_FDT_FILE="sophgo/sg2042-milkv-pioneer.dtb"
 SRC_EXTLINUX=""

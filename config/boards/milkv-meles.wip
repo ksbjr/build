@@ -1,7 +1,7 @@
 # RISC-V MilkV Meles
 BOARD_NAME="MilkV Meles"
 BOARDFAMILY="thead"
-BOARD_MAINTAINER=""
+BOARD_MAINTAINER="k.s.bedford.jr@gmail.com"
 KERNEL_TARGET="legacy,current,edge"
 BOOT_FDT_FILE="thead/th1520-milkv-meles.dtb"
 SRC_EXTLINUX="yes"
