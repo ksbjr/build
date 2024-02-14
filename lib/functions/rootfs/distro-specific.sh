@@ -119,11 +119,17 @@ function create_sources_list_and_deploy_repo_key() {
 		sid) # sid is permanent unstable development and has no such thing as updates or security
 			cat <<- EOF > "${basedir}"/etc/apt/sources.list
 				deb [arch=riscv64] http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
-				#deb-src[arch=riscv64]  http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
+				#deb-src [arch=riscv64] http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
 
 				deb [arch=riscv64] http://${DEBIAN_MIRROR} unstable main contrib non-free non-free-firmware
-				#deb-src[arch=riscv64]  http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
+				#deb-src [arch=riscv64] http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
 			EOF
+			
+			# Exception: with riscv64 not everything was moved from ports
+			# https://lists.debian.org/debian-riscv/2023/07/msg00053.html
+			if [[ "${ARCH}" == riscv64 ]]; then
+				echo "deb [arch=riscv64] http://deb.debian.org/debian-ports/ sid main " >> "${basedir}"/etc/apt/sources.list
+			fi			
 			;;
 
 		jammy)
