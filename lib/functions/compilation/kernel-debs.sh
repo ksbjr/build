@@ -415,28 +415,15 @@ function kernel_package_callback_linux_headers() {
 
 	# ${temp_file_list} is left at WORKDIR for later debugging, will be removed by WORKDIR cleanup trap
 
-	# Small detour: in v6.3-rc1, in commit https://github.com/torvalds/linux/commit/799fb82aa132fa3a3886b7872997a5a84e820062,
-	#               the tools/vm dir was renamed to tools/mm. Unfortunately tools/Makefile still expects it to exist,
-	#               and "make clean" in the "/tools" dir fails. Drop in a fake Makefile there to work around this.
-	#if [[ ! -f "${headers_target_dir}/tools/vm/Makefile" ]]; then
-	#	display_alert "Creating fake tools/vm/Makefile" "6.3+ hackfix" "debug"
-	#	run_host_command_logged mkdir -p "${headers_target_dir}/tools/vm"
-	#	echo -e "clean:\n\techo fake clean for tools/vm" > "${headers_target_dir}/tools/vm/Makefile"
-	#fi
-
-	# Hack for 6.5-rc1: create include/linux dir so the 'clean' step below doesn't fail. I've reported upstream...
-	#display_alert "Creating fake counter/include/linux" "6.5-rc1 hackfix" "debug"
-	#run_host_command_logged mkdir -p "${headers_target_dir}/tools/counter/include/linux"
-
 	# Now, make the script dirs clean.
 	# This is run in our _target_ dir, NOT the source tree, so we're free to make clean as we wish without invalidating the next build's cache.
 	# Understand: I'm sending the logs of this to the bitbucket ON PURPOSE: "clean" tries to use clang, ALSA, etc, which are not available.
 	#             The logs produced during this step throw off developers casually looking at the logs.
 	#             Important: if the steps _fail_ here, you'll have to enable DEBUG=yes to see what's going on.
 	declare make_bitbucket="&> /dev/null"
-	#[[ "${DEBUG}" == "yes" ]] && make_bitbucket=""
-	#run_host_command_logged cd "${headers_target_dir}" "&&" make "ARCH=${SRC_ARCH}" "M=scripts" clean "${make_bitbucket}"
-	#run_host_command_logged cd "${headers_target_dir}/tools" "&&" make "ARCH=${SRC_ARCH}" clean "${make_bitbucket}"
+	[[ "${DEBUG}" == "yes" ]] && make_bitbucket=""
+	run_host_command_logged cd "${headers_target_dir}" "&&" make "ARCH=${SRC_ARCH}" "M=scripts" clean "${make_bitbucket}"
+	run_host_command_logged cd "${headers_target_dir}/tools" "&&" make "ARCH=${SRC_ARCH}" clean "${make_bitbucket}"
 
 	# Trim down on the tools dir a bit after cleaning.
 	rm -rf "${headers_target_dir}/tools/perf" "${headers_target_dir}/tools/testing"
