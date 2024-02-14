@@ -30,6 +30,7 @@ iptables
 keyboard-configuration
 libdigest-sha-perl
 libfuse2
+libkcapi-1.4.0-1
 libnl-3-dev
 libnl-genl-3-dev
 libnss-myhostname
