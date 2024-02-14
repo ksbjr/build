@@ -433,7 +433,7 @@ function kernel_package_callback_linux_headers() {
 	# Understand: I'm sending the logs of this to the bitbucket ON PURPOSE: "clean" tries to use clang, ALSA, etc, which are not available.
 	#             The logs produced during this step throw off developers casually looking at the logs.
 	#             Important: if the steps _fail_ here, you'll have to enable DEBUG=yes to see what's going on.
-	#declare make_bitbucket="&> /dev/null"
+	declare make_bitbucket="&> /dev/null"
 	#[[ "${DEBUG}" == "yes" ]] && make_bitbucket=""
 	#run_host_command_logged cd "${headers_target_dir}" "&&" make "ARCH=${SRC_ARCH}" "M=scripts" clean "${make_bitbucket}"
 	#run_host_command_logged cd "${headers_target_dir}/tools" "&&" make "ARCH=${SRC_ARCH}" clean "${make_bitbucket}"
