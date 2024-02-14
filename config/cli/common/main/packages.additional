@@ -27,10 +27,11 @@ ifenslave
 iotop
 iperf3
 iptables
+kcapi-tools
 keyboard-configuration
 libdigest-sha-perl
 libfuse2
-libkcapi-1.4.0-1
+libkcapi1
 libnl-3-dev
 libnl-genl-3-dev
 libnss-myhostname
