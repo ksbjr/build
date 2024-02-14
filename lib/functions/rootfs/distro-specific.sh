@@ -98,72 +98,35 @@ function create_sources_list_and_deploy_repo_key() {
 	[[ -z $basedir ]] && exit_with_error "No basedir passed to create_sources_list_and_deploy_repo_key"
 
 	case $release in
-		buster)
-			cat <<- EOF > "${basedir}"/etc/apt/sources.list
-				deb http://${DEBIAN_MIRROR} $release main contrib non-free
-				#deb-src http://${DEBIAN_MIRROR} $release main contrib non-free
 
-				deb http://${DEBIAN_MIRROR} ${release}-updates main contrib non-free
-				#deb-src http://${DEBIAN_MIRROR} ${release}-updates main contrib non-free
-
-				deb http://${DEBIAN_MIRROR} ${release}-backports main contrib non-free
-				#deb-src http://${DEBIAN_MIRROR} ${release}-backports main contrib non-free
-
-				deb http://${DEBIAN_SECURTY} ${release}/updates main contrib non-free
-				#deb-src http://${DEBIAN_SECURTY} ${release}/updates main contrib non-free
-			EOF
-			;;
-
-		bullseye)
-			cat <<- EOF > "${basedir}"/etc/apt/sources.list
-				deb http://${DEBIAN_MIRROR} $release main contrib non-free
-				#deb-src http://${DEBIAN_MIRROR} $release main contrib non-free
-
-				deb http://${DEBIAN_MIRROR} ${release}-updates main contrib non-free
-				#deb-src http://${DEBIAN_MIRROR} ${release}-updates main contrib non-free
-
-				deb http://${DEBIAN_MIRROR} ${release}-backports main contrib non-free
-				#deb-src http://${DEBIAN_MIRROR} ${release}-backports main contrib non-free
-
-				deb http://${DEBIAN_SECURTY} ${release}-security main contrib non-free
-				#deb-src http://${DEBIAN_SECURTY} ${release}-security main contrib non-free
-			EOF
-			;;
-
-		bookworm | trixie)
+		trixie)
 			# non-free firmware in bookworm and later has moved from the non-free archive component to a new non-free-firmware component (alongside main/contrib/non-free). This was implemented on 2023-01-27, see also https://lists.debian.org/debian-boot/2023/01/msg00235.html
 			cat <<- EOF > "${basedir}"/etc/apt/sources.list
-				deb http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
-				#deb-src http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
+				deb [arch=riscv64] http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
+				#deb-src[arch=riscv64]  http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
 
-				deb http://${DEBIAN_MIRROR} ${release}-updates main contrib non-free non-free-firmware
-				#deb-src http://${DEBIAN_MIRROR} ${release}-updates main contrib non-free non-free-firmware
+				deb [arch=riscv64] http://${DEBIAN_MIRROR} ${release}-updates main contrib non-free non-free-firmware
+				#deb-src [arch=riscv64] http://${DEBIAN_MIRROR} ${release}-updates main contrib non-free non-free-firmware
 
-				deb http://${DEBIAN_MIRROR} ${release}-backports main contrib non-free non-free-firmware
-				#deb-src http://${DEBIAN_MIRROR} ${release}-backports main contrib non-free non-free-firmware
+				deb [arch=riscv64] http://${DEBIAN_MIRROR} ${release}-backports main contrib non-free non-free-firmware
+				#deb-src [arch=riscv64] http://${DEBIAN_MIRROR} ${release}-backports main contrib non-free non-free-firmware
 
-				deb http://${DEBIAN_SECURTY} ${release}-security main contrib non-free non-free-firmware
-				#deb-src http://${DEBIAN_SECURTY} ${release}-security main contrib non-free non-free-firmware
+				deb [arch=riscv64] http://${DEBIAN_SECURTY} ${release}-security main contrib non-free non-free-firmware
+				#deb-src [arch=riscv64] http://${DEBIAN_SECURTY} ${release}-security main contrib non-free non-free-firmware
 			EOF
 			;;
 
 		sid) # sid is permanent unstable development and has no such thing as updates or security
 			cat <<- EOF > "${basedir}"/etc/apt/sources.list
-				deb http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
-				#deb-src http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
+				deb [arch=riscv64] http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
+				#deb-src[arch=riscv64]  http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
 
-				deb http://${DEBIAN_MIRROR} unstable main contrib non-free non-free-firmware
-				#deb-src http://${DEBIAN_MIRROR} unstable main contrib non-free non-free-firmware
+				deb [arch=riscv64] http://${DEBIAN_MIRROR} unstable main contrib non-free non-free-firmware
+				#deb-src[arch=riscv64]  http://${DEBIAN_MIRROR} $release main contrib non-free non-free-firmware
 			EOF
-
-			# Exception: with riscv64 not everything was moved from ports
-			# https://lists.debian.org/debian-riscv/2023/07/msg00053.html
-			if [[ "${ARCH}" == riscv64 ]]; then
-				echo "deb http://deb.debian.org/debian-ports/ sid main " >> "${basedir}"/etc/apt/sources.list
-			fi
 			;;
 
-		focal | jammy | kinetic | lunar | mantic | noble)
+		jammy)
 			cat <<- EOF > "${basedir}"/etc/apt/sources.list
 				deb http://${UBUNTU_MIRROR} $release main restricted universe multiverse
 				#deb-src http://${UBUNTU_MIRROR} $release main restricted universe multiverse
