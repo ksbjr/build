@@ -106,6 +106,9 @@ seahorse
 shotwell
 simple-scan
 software-properties-gtk
+sonnet-plugins
+systemd-coredump
+systemsettings
 spice-vdagent
 synaptic
 tango-icon-theme
@@ -193,3 +196,4 @@ xwayland
 x11-apps
 x11-xfs-utils
 x11-utils
+zip 

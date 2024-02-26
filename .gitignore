@@ -158,3 +158,5 @@ config/desktop/trixie/environments/budgie/config_base/packages
 config/desktop/jammy/environments/kde-plasma/config_base/packages
 config/desktop/sid/environments/budgie/config_base/packages
 config/desktop/jammy/environments/budgie/config_base/packages
+config/desktop/sid/environments/xfce/config_base/packages
+config/desktop/sid/environments/kde-plasma/config_base/packages
