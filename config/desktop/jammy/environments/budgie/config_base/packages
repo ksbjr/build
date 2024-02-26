@@ -151,9 +151,14 @@ pulseaudio
 pulseaudio-module-bluetooth
 qalculate-gtk
 redshift
+<<<<<<< HEAD
 seahorse
 shotwell
 simple-scan
+=======
+samba
+smbclient
+>>>>>>> upstream/main
 software-properties-gtk
 spice-vdagent
 synaptic

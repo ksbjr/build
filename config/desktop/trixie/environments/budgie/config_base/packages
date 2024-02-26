@@ -151,9 +151,14 @@ pulseaudio
 pulseaudio-module-bluetooth
 qalculate-gtk
 redshift
+<<<<<<< HEAD:config/desktop/trixie/environments/budgie/config_base/packages
 seahorse
 shotwell
 simple-scan
+=======
+samba
+smbclient
+>>>>>>> upstream/main:config/desktop/bullseye/environments/budgie/config_base/packages
 software-properties-gtk
 spice-vdagent
 synaptic

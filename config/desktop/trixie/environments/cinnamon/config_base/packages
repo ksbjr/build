@@ -93,7 +93,11 @@ profile-sync-daemon
 pulseaudio
 pulseaudio-module-bluetooth
 redshift
+<<<<<<< HEAD:config/desktop/trixie/environments/cinnamon/config_base/packages
 slick-greeter
+=======
+samba
+>>>>>>> upstream/main:config/desktop/bullseye/environments/kde-plasma/config_base/packages
 smbclient
 software-properties-gtk
 spice-vdagent

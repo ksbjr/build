@@ -117,8 +117,15 @@ qtspeech5-flite-plugin
 qtspeech5-speechd-plugin
 qtwayland5
 redshift
+<<<<<<< HEAD
 sonnet-plugins
 systemd-coredump
+=======
+samba
+smbclient
+software-properties-gtk
+spice-vdagent
+>>>>>>> upstream/main
 systemsettings
 tango-icon-theme
 unar
